@@ -1,6 +1,6 @@
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+package com.example.conversor_moeda_challenge_alura;
+
+
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
@@ -9,8 +9,20 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import org.springframework.stereotype.Component;
+
+@Component
+
 public class ConversorMoeda {
-    public static void main(String[] args) {
+
+    public ConversorMoeda() {
+
+    }
+    public void executeProcess() {
         Scanner scanner = new Scanner(System.in);
         int opcao = 0;
         try {
