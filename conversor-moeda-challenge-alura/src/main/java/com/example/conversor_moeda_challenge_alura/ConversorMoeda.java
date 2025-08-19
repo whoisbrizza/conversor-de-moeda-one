@@ -13,12 +13,14 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 
 public class ConversorMoeda {
-
+    @Value("${exchangerate.api.key}")
+    private String apiKey;
     public ConversorMoeda() {
 
     }
@@ -27,7 +29,7 @@ public class ConversorMoeda {
         int opcao = 0;
         try {
             //URL exchangerate-api
-            String url_str = "https://v6.exchangerate-api.com/v6/80738f847aa9722abd8e1715/latest/USD";
+            String url_str = "https://v6.exchangerate-api.com/v6/" + apiKey + "/latest/USD";
             URL url = new URL(url_str);
             HttpURLConnection request = (HttpURLConnection) url.openConnection();
             request.setRequestMethod("GET");
